@@ -1,0 +1,8 @@
+Binaries
+DerivedDataCache
+Intermediate
+Saved
+*.sdf
+*.sln
+*.suo
+*.opensdf
