@@ -163,3 +163,13 @@ void UCairoBlueprintLibrary::DrawText(FCairoContext context, FString text, FVect
 		cairo_show_text(context.context, TCHAR_TO_UTF8(*text));
 	}
 }
+
+void UCairoBlueprintLibrary::GetTextSize(FCairoContext context, FString text, FVector2D& size) {
+	if (context.context != NULL)
+	{
+		cairo_text_extents_t extents;
+		cairo_text_extents(context.context, TCHAR_TO_UTF8(*text), &extents);
+		size.X = extents.width;
+		size.Y = extents.height;
+	}
+}

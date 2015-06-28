@@ -76,4 +76,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Cairo")
 	static void DrawText(FCairoContext context, FString text, FVector2D location);
+
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Cairo")
+	static void GetTextSize(FCairoContext context, FString text, FVector2D& size);
 };
