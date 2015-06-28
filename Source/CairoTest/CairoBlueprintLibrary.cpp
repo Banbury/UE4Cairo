@@ -97,5 +97,26 @@ void UCairoBlueprintLibrary::DrawCircle(FCairoContext context, FVector2D locatio
 		else
 			cairo_stroke(context.context);
 	}
+}
 
+void UCairoBlueprintLibrary::DrawRoundedRectangle(FCairoContext context, FVector2D location, FVector2D size, float corner_radius, bool filled)
+{
+	if (context.context != NULL)
+	{
+		double aspect = size.X / size.Y;
+		double radius = corner_radius / aspect;
+		double degrees = PI / 180.0;
+
+		cairo_new_sub_path(context.context);
+		cairo_arc(context.context, location.X + size.X - radius, location.Y + radius, radius, -90 * degrees, 0 * degrees);
+		cairo_arc(context.context, location.X + size.X - radius, location.Y + size.Y - radius, radius, 0 * degrees, 90 * degrees);
+		cairo_arc(context.context, location.X + radius, location.Y + size.Y - radius, radius, 90 * degrees, 180 * degrees);
+		cairo_arc(context.context, location.X + radius, location.Y + radius, radius, 180 * degrees, 270 * degrees);
+		cairo_close_path(context.context);
+		
+		if (filled)
+			cairo_fill(context.context);
+		else
+			cairo_stroke(context.context);
+	}
 }

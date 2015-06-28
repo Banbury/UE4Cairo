@@ -5,6 +5,7 @@
 #include "../../ThirdParty/cairo/Includes/cairo.h"
 
 #include "Kismet/BlueprintFunctionLibrary.h"
+#include <UnrealMathUtility.h>
 #include "CairoBlueprintLibrary.generated.h"
 
 USTRUCT(BlueprintType, Blueprintable)
@@ -12,7 +13,7 @@ struct FCairoContext
 {
 	GENERATED_USTRUCT_BODY()
 
-	cairo_t *context;
+		cairo_t *context;
 	unsigned char *buffer;
 	uint32 buffersize;
 	int32 imageWidth;
@@ -51,4 +52,8 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Cairo")
 	static void DrawCircle(FCairoContext context, FVector2D location, float radius, bool filled);
+
+	UFUNCTION(BlueprintCallable, Category = "Cairo")
+	static void DrawRoundedRectangle(FCairoContext context, FVector2D location, FVector2D size, float corner_radius, bool filled);
+
 };
