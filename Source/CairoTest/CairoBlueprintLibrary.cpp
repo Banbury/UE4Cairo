@@ -55,7 +55,7 @@ UTexture2D* UCairoBlueprintLibrary::CreateTexture(FCairoContext context)
 void UCairoBlueprintLibrary::SetSourceColor(FCairoContext context, FColor color)
 {
 	if (context.context != NULL) {
-		cairo_set_source_rgba(context.context, color.R, color.G, color.B, color.A);
+		cairo_set_source_rgba(context.context, color.R / 255.0, color.G / 255.0, color.B / 255.0, color.A / 255.0);
 	}
 }
 
