@@ -20,6 +20,21 @@ struct FCairoContext
 	int32 imageHeight;
 };
 
+UENUM(BlueprintType)
+enum class EFontSlant
+{
+	FONT_SLANT_NORMAL	UMETA(DisplayName = "Normal"),
+	FONT_SLANT_ITALIC	UMETA(DisplayName = "Italic"),
+	FONT_SLANT_OBLIQUE	UMETA(DisplayName = "Oblique")
+};
+
+UENUM(BlueprintType)
+enum class EFontWeight
+{
+	FONT_FONT_WEIGHT_NORMAL	UMETA(DisplayName = "Normal"),
+	FONT_FONT_WEIGHT_BOLD	UMETA(DisplayName = "Bold"),
+};
+
 /**
  * 
  */
@@ -56,4 +71,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Cairo")
 	static void DrawRoundedRectangle(FCairoContext context, FVector2D location, FVector2D size, float corner_radius, bool filled);
 
+	UFUNCTION(BlueprintCallable, Category = "Cairo")
+	static void SelectFont(FCairoContext context, FName family, float size, EFontSlant slant, EFontWeight weight);
+
+	UFUNCTION(BlueprintCallable, Category = "Cairo")
+	static void DrawText(FCairoContext context, FString text, FVector2D location);
 };

@@ -120,3 +120,46 @@ void UCairoBlueprintLibrary::DrawRoundedRectangle(FCairoContext context, FVector
 			cairo_stroke(context.context);
 	}
 }
+
+void UCairoBlueprintLibrary::SelectFont(FCairoContext context, FName family, float size, EFontSlant slant, EFontWeight weight)
+{
+	if (context.context != NULL)
+	{
+		cairo_font_slant_t c_slant;
+		cairo_font_weight_t c_weight;
+
+		switch (slant) 
+		{
+		case EFontSlant::FONT_SLANT_NORMAL:
+			c_slant = CAIRO_FONT_SLANT_NORMAL;
+			break;
+		case EFontSlant::FONT_SLANT_ITALIC:
+			c_slant = CAIRO_FONT_SLANT_ITALIC;
+			break;
+		case EFontSlant::FONT_SLANT_OBLIQUE:
+			c_slant = CAIRO_FONT_SLANT_OBLIQUE;
+			break;
+		}
+
+		switch (weight)
+		{
+		case EFontWeight::FONT_FONT_WEIGHT_NORMAL:
+			c_weight = CAIRO_FONT_WEIGHT_NORMAL;
+			break;
+		case EFontWeight::FONT_FONT_WEIGHT_BOLD:
+			c_weight = CAIRO_FONT_WEIGHT_BOLD;
+			break;
+		}
+
+		cairo_select_font_face(context.context, family.GetPlainANSIString(), c_slant, c_weight);
+		cairo_set_font_size(context.context, size);
+	}
+}
+
+void UCairoBlueprintLibrary::DrawText(FCairoContext context, FString text, FVector2D location) {
+	if (context.context != NULL)
+	{
+		cairo_move_to(context.context, location.X, location.Y);
+		cairo_show_text(context.context, TCHAR_TO_UTF8(*text));
+	}
+}
