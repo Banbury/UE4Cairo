@@ -1,0 +1,18 @@
+{
+	"FileVersion": 3,
+	"FriendlyName": "CairoPlugin",
+	"Version": 1,
+	"VersionName": "1.0",
+	"CreatedBy": "Banbury",
+	"CreatedByURL": "https://github.com/Banbury/UE4Cairo",
+	"Category": "2D",
+	"Description": "Vector Graphics with Cairo.",
+	"EnabledByDefault": false,
+	"Modules": [
+		{
+			"Name": "CairoPlugin",
+			"Type": "Developer",
+			"LoadingPhase": "Default"
+		}
+	]
+}

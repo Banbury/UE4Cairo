@@ -2,8 +2,6 @@
 
 #pragma once
 
-#include "../../ThirdParty/cairo/Includes/cairo.h"
-
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include <UnrealMathUtility.h>
 #include "CairoBlueprintLibrary.generated.h"
@@ -13,7 +11,7 @@ struct FCairoContext
 {
 	GENERATED_USTRUCT_BODY()
 
-		cairo_t *context;
+	cairo_t *context;
 	unsigned char *buffer;
 	uint32 buffersize;
 	int32 imageWidth;
@@ -39,7 +37,7 @@ enum class EFontWeight
  * 
  */
 UCLASS()
-class CAIROTEST_API UCairoBlueprintLibrary : public UBlueprintFunctionLibrary
+class CAIROPLUGIN_API UCairoBlueprintLibrary : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
 	

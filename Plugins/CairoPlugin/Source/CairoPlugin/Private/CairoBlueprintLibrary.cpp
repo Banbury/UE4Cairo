@@ -1,6 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "CairoTest.h"
+#include "CairoPluginPrivatePCH.h"
 #include "CairoBlueprintLibrary.h"
 
 void UCairoBlueprintLibrary::CreateSurface(int32 imageWidth, int32 imageHeight, FCairoContext& context)

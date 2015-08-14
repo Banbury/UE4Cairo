@@ -12,5 +12,15 @@
 				"Engine"
 			]
 		}
+	],
+	"Plugins": [
+		{
+			"Name": "PluginCreator",
+			"Enabled": true
+		},
+		{
+			"Name": "EpicSurvey",
+			"Enabled": false
+		}
 	]
 }
